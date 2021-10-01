@@ -17,3 +17,6 @@ add_executable(malloc MemoriaDinamica/malloc.cpp)
 add_executable(newDelete MemoriaDinamica/newDelete.cpp)
 add_executable(newMatriz MemoriaDinamica/newMatriz.cpp)
 add_executable(ej2 MemoriaDinamica/Ej2.cpp)
+
+# Estructuras de datos
+add_executable(test-lista  Estructuras/lista-test.cpp)
