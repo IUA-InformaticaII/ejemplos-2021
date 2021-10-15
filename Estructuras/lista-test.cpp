@@ -3,6 +3,15 @@
 
 using namespace std;
 
+class Car{
+public:
+    string marca;
+    string modelo;
+    string patente;
+    int kilometraje;
+
+};
+
 int main() {
     LinkedList<string> l;
     LinkedList<int> lint;
@@ -16,14 +25,16 @@ int main() {
         l.insert(300, "intenté");
         cout << "Lo intenté " << endl;
     } catch (int n) {
-        cout << "No se puudo insertar en la lista. " << n << endl;
+        cout << "No se pudo insertar en la lista. " << n << endl;
     }
+
+    cout << l.find("casa")<< endl;
 
     try {
         for (int i = 0; i < 20; ++i) {
             cout << "pos: " << i << " - " << l.get(i) << endl;
         }
-    }catch (int n) {
+    } catch (int n) {
         cout << " no se encontró dicha pos.  " << n << endl;
     }
 

@@ -18,7 +18,23 @@ public:
 
     void remove(unsigned int pos);
 
-    T find(T dato);
+    T find(T data);
+
+    void push_front(T data) {
+        insert(0, data);
+    }
+
+    void push_back(T data) {
+        insert(size, data);
+    }
+
+    int getSize() {
+        return size;
+    }
+
+    bool isEmpty() {
+        return size == 0;
+    }
 
 private:
     Node<T> *getNode(unsigned int pos);
@@ -67,6 +83,39 @@ Node<T> *LinkedList<T>::getNode(unsigned int pos) {
         pos--;
     }
     return aux;
+}
+
+template<typename T>
+T LinkedList<T>::find(T data) {
+    Node<T> *aux = head;
+
+    while (aux != nullptr && aux->getData() != data) {
+        aux = aux->getNext();
+    }
+    if (aux == nullptr)
+        throw 404;
+
+    return aux->getData();
+}
+
+template<typename T>
+void LinkedList<T>::remove(unsigned int pos) {
+    Node<T> *aux;
+    Node<T> *toDelete;
+
+    if (pos >= size)
+        throw 404;
+
+    if (pos == 0) {
+        toDelete = head;
+        head = head->getNext();
+    } else {
+        aux = getNode(pos - 1);
+        toDelete = aux->getNext();
+        aux->setNext(aux->getNext()->getNext());
+    }
+    delete toDelete;
+    size--;
 }
 
 

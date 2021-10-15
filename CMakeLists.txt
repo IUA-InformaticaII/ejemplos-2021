@@ -20,3 +20,4 @@ add_executable(ej2 MemoriaDinamica/Ej2.cpp)
 
 # Estructuras de datos
 add_executable(test-lista  Estructuras/lista-test.cpp)
+add_executable(test-lista2  Estructuras/lista-test2.cpp)
