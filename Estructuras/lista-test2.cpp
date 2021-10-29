@@ -19,11 +19,7 @@ public:
         return !(rhs == *this);
     }
 
-    friend ostream &operator<<(ostream &os, const Car &car) {
-        os << "marca: " << car.marca << " modelo: " << car.modelo << " kilometraje: " << car.kilometraje;
-        return os;
-    }
-};
+    };
 
 int main() {
     LinkedList<Car> l;

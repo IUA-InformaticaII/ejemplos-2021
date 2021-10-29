@@ -36,6 +36,23 @@ public:
         return size == 0;
     }
 
+    // For iterator
+    /**
+     * Para recorrer la lista de manera mas optima
+     *
+     *   for(lista.iterInit();! lista.iterEnd(); lista.iterNext()){
+     *       cout << lista.iterGet();
+     *   }
+     */
+
+    void iterInit();
+
+    bool iterEnd();
+
+    void iterNext();
+
+    T iterGet();
+
 private:
     Node<T> *getNode(unsigned int pos);
 };
@@ -44,6 +61,7 @@ private:
 template<typename T>
 LinkedList<T>::LinkedList() {
     head = nullptr;
+    actual = nullptr;
     size = 0;
 }
 
@@ -116,6 +134,26 @@ void LinkedList<T>::remove(unsigned int pos) {
     }
     delete toDelete;
     size--;
+}
+
+template<typename T>
+void LinkedList<T>::iterInit() {
+    actual = head;
+}
+
+template<typename T>
+bool LinkedList<T>::iterEnd() {
+    return actual == nullptr;
+}
+
+template<typename T>
+void LinkedList<T>::iterNext() {
+    actual = actual->getNext();
+}
+
+template<typename T>
+T LinkedList<T>::iterGet() {
+return actual->getData();
 }
 
 
